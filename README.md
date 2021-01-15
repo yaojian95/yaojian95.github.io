@@ -1,5 +1,7 @@
 ## Welcome to GitHub Pages
 
+The trace of the metric is always just δμ  μ=d, the number of spacetime dimensions.
+
 [ORCID](https://orcid.org/0000-0003-0813-9480)
 
 You can use the [editor on GitHub](https://github.com/yaojian95/yaojian95.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
