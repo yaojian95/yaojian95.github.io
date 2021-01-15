@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-The trace of the metric is always just δμ  μ=d, the number of spacetime dimensions.
+The trace of the metric is always just $\delta_\mu^{\mu}d$, the number of spacetime dimensions.
 
 [ORCID](https://orcid.org/0000-0003-0813-9480)
 
