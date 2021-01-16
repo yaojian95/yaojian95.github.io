@@ -2,6 +2,9 @@
 
 The trace of the metric is always just <img src="https://render.githubusercontent.com/render/math?math=\delta_\mu^{\mu}%20=%20d">, the number of spacetime dimensions.
 
+What do you mean by **Solenoidal** vector?
+In vector calculus a solenoidal vector field (also known as an incompressible vector field, a **divergence-free** vector field, or a **transverse** vector field) is a vector field v with divergence zero at all points in the field: A common way of expressing this property is to say that the field has no sources or sinks.
+
 [ORCID](https://orcid.org/0000-0003-0813-9480)
 
 You can use the [editor on GitHub](https://github.com/yaojian95/yaojian95.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
