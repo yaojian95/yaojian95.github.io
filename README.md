@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to my personal page.
 
 The trace of the metric is always just <img src="https://render.githubusercontent.com/render/math?math=\delta_\mu^{\mu}%20=%20d">, the number of spacetime dimensions.
 
