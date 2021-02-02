@@ -4,8 +4,13 @@ The trace of the metric is always just <img src="https://render.githubuserconten
 
 The stress-energy tensor is defined as <img src="https://render.githubusercontent.com/render/math?math=T^{\mu%20\nu}%20\equiv%20\frac{2}{\sqrt{-g}}%20\frac{\delta%20S_{\mathrm{pp}}}{\delta%20g_{\mu%20\nu}}">
 
-What do you mean by **Solenoidal** vector?
+- What do you mean by **Solenoidal** vector?
 In vector calculus a solenoidal vector field (also known as an incompressible vector field, a **divergence-free** vector field, or a **transverse** vector field) is a vector field v with divergence zero at all points in the field: A common way of expressing this property is to say that the field has no sources or sinks.
+
+- **Volume element** 
+<img src="https://render.githubusercontent.com/render/math?math=g=det(g_{\mu\nu})\rightarrow%20det\left(g_{\tau\lambda}\frac{\partial%20x^{\tau}}{\partial%20x%27^{\mu}}\frac{\partial%20x^{\lambda}}{\partial%20x%27^{\nu}}\right)=g\,\cdot\,(|J|^{-1})^2=g%27">
+<img src="https://render.githubusercontent.com/render/math?math=d^4x\rightarrow%20det\left(\frac{\partial%20x%27}{\partial%20x}\right)d^4x=|J|\,d^4x=d^4x%27">
+<img src="https://render.githubusercontent.com/render/math?math=d^4x\sqrt{-g}\quad\rightarrow\quad%20d^4x\sqrt{-g}|J|\cdot|J|^{-1}=d^4x\sqrt{-g}">
 
 [ORCID](https://orcid.org/0000-0003-0813-9480)
 
