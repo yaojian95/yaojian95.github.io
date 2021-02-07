@@ -12,6 +12,14 @@ In vector calculus a solenoidal vector field (also known as an incompressible ve
 <img src="https://render.githubusercontent.com/render/math?math=d^4x\rightarrow%20det\left(\frac{\partial%20x%27}{\partial%20x}\right)d^4x=|J|\,d^4x=d^4x%27">
 <img src="https://render.githubusercontent.com/render/math?math=d^4x\sqrt{-g}\quad\rightarrow\quad%20d^4x\sqrt{-g}|J|\cdot|J|^{-1}=d^4x\sqrt{-g}">
 
+- The Post-Newtonian formalism is nothing but a Taylor expansion in powers of 1/c.
+<img src="https://render.githubusercontent.com/render/math?math=\begin{array}{l}%20L=-m%20c^{2}\left[1+\frac{\phi_{\mathrm{N}}}{c^{2}}-\frac{\phi_{\mathrm{N}}^{2}}{2%20c^{4}}+\frac{\phi_{1%20\mathrm{PN}}}{c^{4}}-\frac{v_{i}%20\omega_{1%20\mathrm{PN}}^{i}}{c^{4}}+\right.%20\left.-\frac{1}{2}%20\frac{v^{2}}{c^{2}}+\frac{\phi_{\mathrm{N}}}{c^{2}}%20\frac{v^{2}}{c^{2}}+\mathcal{O}\left(\frac{1}{c^{6}}\right)+\mathcal{O}\left(\frac{1}{c^{7}}\right)\right]%20m%20\end{array}">
+
+\begin{array}{l}
+L=-m c^{2}+\frac{1}{2} m v^{2}-m \phi_{\mathrm{N}}+\left(1 \mathrm{PN} \text { corrections of order } c^{-2}\right)+ \\
++\left(2 \mathrm{PN} \text { corrections of order } c^{-4}\right)+\left(2.5 \mathrm{PN} \text { corrections of order } c^{-5}\right)
+\end{array}
+
 [ORCID](https://orcid.org/0000-0003-0813-9480)
 
 You can use the [editor on GitHub](https://github.com/yaojian95/yaojian95.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
