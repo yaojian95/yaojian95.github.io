@@ -1,7 +1,8 @@
 
 body {background-color: white;}
-h1   {color: blue;}
-
+h1   {color: blue;margin:50px}
+h2   {color: black;margin:60px}
+h3   {color: black;margin:70px}
 /*
 p    {color: black;
     border: 2px solid powderblue;
@@ -11,22 +12,24 @@ p    {color: black;
     }
 */
 
-p {margin: 150px;}
+.zero{margin: 250px;}
 
-#one{
+.one{
     font-family: 'Impact';
     color: red;
     font-size: 25px;
 }
-#two{
+.two{
     font-family: 'Times New Roman';
     color: blue;
     font-size: 50px;
 }
 .three{
-    font-family: 'Impact';
+    /* font-family: 'Impact'; */
     color: red;
     font-size: 25px;
+    margin: 150px;
+    border: 2px solid black;
 }
 .four{
     font-family: 'Times New Roman';
