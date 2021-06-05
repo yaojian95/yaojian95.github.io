@@ -1,0 +1,34 @@
+
+body {background-color: white;}
+h1   {color: blue;}
+
+/*
+p    {color: black;
+    border: 2px solid powderblue;
+    margin: 150px;
+    font-size: 160%;
+    background-color:white
+    }
+*/
+
+#one{
+    font-family: 'Impact';
+    color: red;
+    font-size: 25px;
+}
+#two{
+    font-family: 'Times New Roman';
+    color: blue;
+    font-size: 50px;
+}
+.three{
+    font-family: 'Impact';
+    color: red;
+    font-size: 25px;
+}
+.four{
+    font-family: 'Times New Roman';
+    color: blue;
+    font-size: 50px;
+    border: 2px solid black;
+}
