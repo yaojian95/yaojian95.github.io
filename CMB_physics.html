@@ -10,6 +10,9 @@
 "https://raw.githubusercontent.com/YJHelloWorld/YJHelloWorld.github.io/master/assets/spherical.png" 
         type = "image/x-icon">
   
+        <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -34,12 +37,85 @@
   </script> -->
 
 </head>
+
+
 <body>
-    <h1> First look </h1>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+    <ul>
+      <li><a class="active" href="https://jianyao.xyz/"><i class="fa fa-fw fa-home"></i> Home</a> </li>
+
+      
+      <!-- <li><a href="news.asp">News</a></li>
+      <li><a href="contact.asp">Contact</a></li>
+      <li><a href="about.asp">About</a></li> -->
+    </ul>
+
+    <h1> CMB physics </h1>
+  <h2> Evolution of Potential $\Phi$ </h2>
+  <ol>
+    <li>Superhorizon, doesn't change much.</li>
+    <li>Subhorizon in radiation dominated era, decays.</li>
+    <li>  During matter domination, $\Phi$ does not even evolve inside the horizon.</li>
+  </ol>
+
+
+  <h2>Boltzmann Equation</h2>
+  Boltzmann Equation for photons:
+  \begin{equation}
+  \Theta^{\prime}+i k \mu \Theta=-\Phi^{\prime}-i k \mu \Psi-\tau^{\prime}\left[\Theta_{0}-\Theta+\mu u_{\mathrm{b}}-\frac{1}{2} \mathcal{P}_{2}(\mu) \Pi\right]
+  \end{equation}
+  
+  with
+$
+\Pi=\Theta_{2}+\Theta_{P, 2}+\Theta_{P, 0}.
+$
+
+We want to turn this differential equation for $\Theta(\eta, \mu)$ into an infinite set of coupled equations for $\Theta_{\ell}(\eta)$, 
+so we can see that the higher moments ($\ell > 1$) are small and so can be negelected.
+  \begin{equation}
+\Theta_{l}^{\prime}+\frac{k}{(-i)^{l+1}} \int_{-1}^{1} \frac{d \mu}{2} \mu \mathcal{P}_{l}(\mu) \Theta(\mu)=\tau^{\prime} \Theta_{l} \quad(l>2)
+\end{equation}
+
+All moments with $\ell > 1$ are very small compared to the monopole and dipole. 
+Explanations: The mean free path of photons is very small in the tightly coupled situation.
+
+<ol>
+  <li>For large scale perturbations (small $k$, with wavelength much larger than the mean free path of photons, the photons cann't see high-order moments of the perturbation 
+    because they can only move short distances before next scattering off electrons.)</li>
+  <li>For small scale perturbations (similiar wavelength with the mean free path, these modes are strongly damped by photon diffusion, since their wavelengths are much smaller
+    than the damping scale)</li>
+</ol>
+
+
+<h2> First look </h2>
     <img src="peaks.svg" alt="Image of a laptop" style="width:800px;height:600px;">
     <img src="delta.svg" alt="Image of a laptop" style="width:1000px;height:600px;">
 
-    <h1>Multipole moments</h1>
+<h2>Multipole moments</h2>
 (Modern Cosmology, 2nd edition, P. 118)
 
     \begin{equation}
@@ -51,6 +127,7 @@ The monopole $\Theta_{0}$ is an integral of the photon perturbation at any given
 
 \begin{equation}
 \Theta_{l}(k, \eta) \equiv \frac{1}{(-i)^{l}} \int_{-1}^{1} \frac{d \mu}{2} \mathcal{P}_{l}(\mu) \Theta(\mu, k, \eta)
+\label{eq:multipoles}
 \end{equation}
 
 The photon perturbations can be described either by $\Theta(\mu, k, \eta)$ or by a hierarchy of moments, $\Theta_{l}(k, \eta) $. 
@@ -60,7 +137,7 @@ The cosine of the angle between the wavenumber $\boldsymbol{k}$ and the photon d
 \mu \equiv \frac{\boldsymbol{k} \cdot \hat{\boldsymbol{p}}}{k}
 \end{equation}
 
- <h1> Multipole analysis (spherical harmonics)</h1>
+ <h2> Multipole analysis (spherical harmonics)</h2>
     
     \begin{equation}
 \frac{\delta T}{T_{0}}(\theta, \phi)=\sum a_{\ell m} Y_{\ell m}(\theta, \phi)
@@ -93,7 +170,7 @@ e^{i \mathbf{k} \cdot \mathbf{x}}=4 \pi \sum_{\ell m} i^{\ell} j_{\ell}(k x) Y_{
 \end{equation}
 Here $\hat{\mathbf{x}}$ and $\hat{\mathbf{k}}$ are the unit vectors in the directions of $\mathbf{x}$ and $\mathbf{k}$, and the $j_{\ell}$ are the spherical Bessel functions.
 
-<h2> Theoretical angular power spectrum </h2>
+<h3> Theoretical angular power spectrum </h3>
 \begin{equation}
 \begin{aligned}
 \left\langle\left(\frac{\delta T(\theta, \phi)}{T}\right)^{2}\right\rangle &=\left\langle\sum_{\ell m} a_{\ell m} Y_{\ell m}(\theta, \phi) \sum_{\ell^{\prime} m^{\prime}} a_{\ell^{\prime} m^{\prime}}^{*} Y_{\ell^{\prime} m^{\prime}}^{*}(\theta, \phi)\right\rangle \\
@@ -107,16 +184,16 @@ C(\vartheta) \equiv\left\langle\frac{\delta T(\hat{\mathbf{n}})}{T} \frac{\delta
 \end{equation}
 where $\vartheta$ is the angle between $\hat{\mathbf{n}}$ and $\hat{\mathbf{n}}^{\prime}$.
 
-<h2> One-realization angular power spectrum </h2>
+<h3> One-realization angular power spectrum </h3>
 Cosmic variance:
 \begin{equation}
 \left\langle\left(\widehat{C}_{\ell}-C_{\ell}\right)^{2}\right\rangle=\frac{2}{2 \ell+1} C_{\ell}^{2}
 \end{equation}
 
-<h2> Mutipole and scales </h2>
-<h3>
+<h3> Mutipole and scales </h3>
+<h4>
 Rough correspondence: 
-</h3>
+</h4>
 \begin{equation}
 \vartheta_{\lambda}=\frac{2 \pi}{\ell}=\frac{360^{\circ}}{\ell}
 \end{equation}
@@ -138,7 +215,7 @@ From it we get that the modes with wavenumber $k$ contribute mostly to multipole
 \ell=k d_{A}^{c}
 \end{equation}
 
-<h3> Exact treatment</h3>
+<h4> Exact treatment</h4>
 Considering some function:
 
 \begin{equation}
@@ -161,7 +238,7 @@ a_{\ell m}=\frac{4 \pi i^{\ell}}{(2 \pi)^{3}} \int d^{3} k f(\mathbf{k}) j_{\ell
 \end{equation}
 
 
-  <h1> Temperature anisotropy observed today</h1>
+  <h2> Temperature anisotropy observed today</h2>
 
 
 We can write the observed temperature anisotropy as 
@@ -183,7 +260,7 @@ Note that both the density perturbation $\delta_{\gamma}$ and the fluid velocity
 \end{equation}
  The former is called Sachs-Wolfe effect, and the latter is the integrated Sachs-Wolfe effect.
 
-  <h2> Large scales - Sachs–Wolfe part of the spectrum </h2>
+  <h3> Large scales - Sachs–Wolfe part of the spectrum </h3>
 \begin{equation}
 \left(\frac{\delta T}{T}\right)_{\mathrm{SW}}=\frac{1}{3} \Phi\left(t_{\mathrm{dec}}, \mathbf{x}_{\mathrm{ls}}\right)
 \end{equation}
@@ -193,9 +270,66 @@ Using Eq.\ref{eq:ktox},
 a_{\ell m}=4 \pi i^{\ell} \sum_{\mathbf{k}} \frac{1}{3} \Phi_{\mathbf{k}} j_{\ell}(k x) Y_{\ell m}^{*}(\hat{\mathbf{k}})
 \end{equation}
 
-    <h2> Small scales - Acoustic oscillations </h2>
-    <p class = "zero">
+    <h3> Small scales - Acoustic oscillations </h3>
+  
 For small scales, the baryon-photon fluid oscillates in these potential wells caused by the CDM. The potential $\Phi$ evolves at first but then becomes constant as the universe becomes matter dominated.
+
+From Eq.\ref{eq:multipoles}, we can get the equation governing acoustic oscillations of the photon-baryon fluid,which is a second-order ordinary differential equation
+\begin{equation}
+\begin{array}{r}
+\Theta_{0}^{\prime \prime}+\frac{a^{\prime}}{a} \frac{R}{1+R} \Theta_{0}^{\prime}+k^{2} c_{s}^{2} \Theta_{0}=F(k, \eta), \\
+F(k, \eta) \equiv-\frac{k^{2}}{3} \Psi-\frac{a^{\prime}}{a} \frac{R}{1+R} \Phi^{\prime}-\Phi^{\prime \prime}
+\end{array}
+\end{equation}
+
+In the tightly-coupled limit, we can have two homogeneous solutions 
+
+\begin{equation}
+S_{1}(k, \eta)=\sin \left[k r_{s}(\eta)\right] ; \quad S_{2}(k, \eta)=\cos \left[k r_{s}(\eta)\right]
+\label{eq:homo}
+\end{equation}
+
+The tightly-coupled solution for the photon temperature can be constructed from the homogeneous solutions Eq.\ref{eq:homo},
+
+\begin{equation}
+\begin{array}{l}
+\Theta_{0}(\boldsymbol{k}, \eta)+\Phi(\boldsymbol{k}, \eta)=C_{1}(\boldsymbol{k}) S_{1}(\eta)+C_{2}(\boldsymbol{k}) S_{2}(\eta) \\
++\frac{k^{2}}{3} \int_{0}^{\eta} d \tilde{\eta}[\Phi(\boldsymbol{k}, \tilde{\eta})-\Psi(\boldsymbol{k}, \tilde{\eta})] \frac{S_{1}(\tilde{\eta}) S_{2}(\eta)-S_{1}(\eta) S_{2}(\tilde{\eta})}{S_{1}(\tilde{\eta}) S_{2}^{\prime}(\tilde{\eta})-S_{1}^{\prime}(\tilde{\eta}) S_{2}(\eta)} .
+\end{array}
+\end{equation}
+
+We fix the constants $C_{1}$ and $C_{2}$ in Eq. (9.25) by matching to the initial conditions, when both $\Theta_{0}$ and $\Phi$ are constants. 
+Since $\Theta_{0}^{\prime}$ and $\Phi^{\prime}$ vanish initially, the coefficient of the sine term $C_{1}$ must vanish. 
+Then we have $C_{2}(\boldsymbol{k})=\Theta_{0}(\boldsymbol{k}, 0)+\Phi(\boldsymbol{k}, 0)$.
+We finally have 
+
+\begin{equation}
+\begin{array}{l}
+\Theta_{0}(\boldsymbol{k}, \eta)+\Phi(\boldsymbol{k}, \eta)=&\left[\Theta_{0}(\boldsymbol{k}, 0)+\Phi(\boldsymbol{k}, 0)\right] \cos \left(k r_{s}\right) \\
+&+\frac{k}{\sqrt{3}} \int_{0}^{\eta} d \tilde{\eta}[\Phi(\boldsymbol{k}, \tilde{\eta})-\Psi(\boldsymbol{k}, \tilde{\eta})] \sin \left[k\left(r_{s}(\eta)-r_{s}(\tilde{\eta})\right)\right]
+\label{eq:monopole}
+\end{array}
+\end{equation}
+
+Eq. \ref{eq:monopole} is an expression for the anisotropy in the tightly-coupled limit, first derived by Hu and Sugiyama (1995). It shows the characteristic features of the initial conditions from inflation, 
+which only excite the cosine mode. This follows directly from the fact that perturbations were generated when they exited the horizon during inflation, and remained constant outside the horizon. 
+The pure-cosine initial conditions lead to the coherent oscillations in $\Theta+\Phi$. Alternative scenarios, which generate the perturbations when the modes enter the horizon, 
+would typically predict that both sine and cosine modes are present. In that case, there would not be a clear peak/trough structure in $\Theta_{0}$.
+
+<p>
+In addition to the monopole, the photon distribution has a nonnegligible dipole at
+recombination.
 </p>
+\begin{equation}
+\begin{aligned}
+\Theta_{1}(\boldsymbol{k}, \eta)=& \frac{1}{\sqrt{3}}\left[\Theta_{0}(\boldsymbol{k}, 0)+\Phi(\boldsymbol{k}, 0)\right] \sin \left(k r_{s}\right) \\
+&-\frac{k}{3} \int_{0}^{\eta} d \tilde{\eta}[\Phi(\boldsymbol{k}, \tilde{\eta})-\Psi(\boldsymbol{k}, \tilde{\eta})] \cos \left[k\left(r_{s}(\eta)-r_{s}(\tilde{\eta})\right)\right]
+\end{aligned}
+\end{equation}
+
+the first term is completely out of phase with the monopole.
+
 </body>
 </html>
+
+
