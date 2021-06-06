@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CMB physics</title>
+  
+  <link rel = "icon" href = 
+"https://raw.githubusercontent.com/YJHelloWorld/YJHelloWorld.github.io/master/assets/spherical.png" 
+        type = "image/x-icon">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  
+
+  
+  <script>
+  MathJax = {
+    tex: {
+      tags: 'ams',inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<!-- <script>
+    MathJax = {
+      tex: {
+        
+      }
+    };
+  </script> -->
+
+</head>
+<body>
+    <h1> First look </h1>
+    <img src="peaks.svg" alt="Image of a laptop" style="width:800px;height:600px;">
+    <img src="delta.svg" alt="Image of a laptop" style="width:1000px;height:600px;">
+
+    <h1>Multipole moments</h1>
+(Modern Cosmology, 2nd edition, P. 118)
+
+    \begin{equation}
+\Theta_{0}(\boldsymbol{x}, t) \equiv \frac{1}{4 \pi} \int d \Omega^{\prime} \Theta\left(\hat{\boldsymbol{p}}^{\prime}, \boldsymbol{x}, t\right)
+\end{equation}
+
+The monopole $\Theta_{0}$ is an integral of the photon perturbation at any given point over all photon directions. 
+
+
+\begin{equation}
+\Theta_{l}(k, \eta) \equiv \frac{1}{(-i)^{l}} \int_{-1}^{1} \frac{d \mu}{2} \mathcal{P}_{l}(\mu) \Theta(\mu, k, \eta)
+\end{equation}
+
+The photon perturbations can be described either by $\Theta(\mu, k, \eta)$ or by a hierarchy of moments, $\Theta_{l}(k, \eta) $. 
+
+The cosine of the angle between the wavenumber $\boldsymbol{k}$ and the photon direction $\hat{\boldsymbol{p}}$ is denoted as $\mu$ :
+\begin{equation}
+\mu \equiv \frac{\boldsymbol{k} \cdot \hat{\boldsymbol{p}}}{k}
+\end{equation}
+
+ <h1> Multipole analysis (spherical harmonics)</h1>
+    
+    \begin{equation}
+\frac{\delta T}{T_{0}}(\theta, \phi)=\sum a_{\ell m} Y_{\ell m}(\theta, \phi)
+\end{equation}
+    
+    \begin{equation}
+a_{\ell m}=\int Y_{\ell m}^{*}(\theta, \phi) \frac{\delta T}{T_{0}}(\theta, \phi) d \Omega
+\end{equation}
+
+Orthonormal functions: 
+\begin{equation}
+\int d \Omega Y_{\ell m}(\theta, \phi) Y_{\ell^{\prime} m^{\prime}}^{*}(\theta, \phi)=\delta_{\ell \ell^{\prime}} \delta_{m m^{\prime}}
+\end{equation}
+
+Summing over the $m$ corresponding to the same multipole number $\ell$ gives the $\it{addition \ theorem}$
+
+\begin{equation}
+\sum_{m} Y_{\ell m}^{*}\left(\theta^{\prime}, \phi^{\prime}\right) Y_{\ell m}(\theta, \phi)=\frac{2 \ell+1}{4 \pi} P_{\ell}(\cos \vartheta)
+\end{equation}
+
+where $\vartheta$ is the angle between $\hat{\mathbf{n}}=(\theta, \phi)$ and $\hat{\mathbf{n}}^{\prime}=\left(\theta^{\prime}, \phi^{\prime}\right)$, i.e., 
+$\hat{\mathbf{n}} \cdot \hat{\mathbf{n}}^{\prime}=\cos \vartheta .$ For $\hat{\mathbf{n}}=\hat{\mathbf{n}}^{\prime}$ this becomes
+
+\begin{equation}
+\sum_{m}\left|Y_{\ell m}(\theta, \phi)\right|^{2}=\frac{2 \ell+1}{4 \pi}
+\end{equation}
+We shall also need the expansion of a plane wave in terms of spherical harmonics,
+\begin{equation}
+e^{i \mathbf{k} \cdot \mathbf{x}}=4 \pi \sum_{\ell m} i^{\ell} j_{\ell}(k x) Y_{\ell m}(\hat{\mathbf{x}}) Y_{\ell m}^{*}(\hat{\mathbf{k}})
+\end{equation}
+Here $\hat{\mathbf{x}}$ and $\hat{\mathbf{k}}$ are the unit vectors in the directions of $\mathbf{x}$ and $\mathbf{k}$, and the $j_{\ell}$ are the spherical Bessel functions.
+
+<h2> Theoretical angular power spectrum </h2>
+\begin{equation}
+\begin{aligned}
+\left\langle\left(\frac{\delta T(\theta, \phi)}{T}\right)^{2}\right\rangle &=\left\langle\sum_{\ell m} a_{\ell m} Y_{\ell m}(\theta, \phi) \sum_{\ell^{\prime} m^{\prime}} a_{\ell^{\prime} m^{\prime}}^{*} Y_{\ell^{\prime} m^{\prime}}^{*}(\theta, \phi)\right\rangle \\
+&=\sum_{\ell \ell^{\prime}} \sum_{m m^{\prime}} Y_{\ell m}(\theta, \phi) Y_{\ell^{\prime} m^{\prime}}^{*}(\theta, \phi)\left\langle a_{\ell m} a_{\ell^{\prime} m^{\prime}}^{*}\right\rangle \\
+&=\sum_{\ell} C_{\ell} \sum_{m}\left|Y_{\ell m}(\theta, \phi)\right|^{2}=\sum_{\ell} \frac{2 \ell+1}{4 \pi} C_{\ell},
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+C(\vartheta) \equiv\left\langle\frac{\delta T(\hat{\mathbf{n}})}{T} \frac{\delta T\left(\hat{\mathbf{n}}^{\prime}\right)}{T}\right\rangle=\frac{1}{4 \pi} \sum_{\ell}(2 \ell+1) C_{\ell} P_{\ell}(\cos \vartheta)
+\end{equation}
+where $\vartheta$ is the angle between $\hat{\mathbf{n}}$ and $\hat{\mathbf{n}}^{\prime}$.
+
+<h2> One-realization angular power spectrum </h2>
+Cosmic variance:
+\begin{equation}
+\left\langle\left(\widehat{C}_{\ell}-C_{\ell}\right)^{2}\right\rangle=\frac{2}{2 \ell+1} C_{\ell}^{2}
+\end{equation}
+
+<h2> Mutipole and scales </h2>
+<h3>
+Rough correspondence: 
+</h3>
+\begin{equation}
+\vartheta_{\lambda}=\frac{2 \pi}{\ell}=\frac{360^{\circ}}{\ell}
+\end{equation}
+
+Define comving angular diameter diatance:
+\begin{equation}
+d_{A}^{c} \equiv \frac{\lambda^{c}}{\vartheta}
+\end{equation}
+Consider now the Fourier modes of our earlier perturbation theory discussion. A mode with comoving wavenumber $k$ has comoving wavelength $\lambda^{c}=2 \pi / k .$ 
+Thus this mode should show up as a pattern on the CMB sky with angular size
+
+\begin{equation}
+\vartheta_{\lambda}=\frac{\lambda^{c}}{d_{A}^{c}}=\frac{2 \pi}{k d_{A}^{c}}=\frac{2 \pi}{\ell}
+\end{equation}
+
+From it we get that the modes with wavenumber $k$ contribute mostly to multipoles around
+
+\begin{equation}
+\ell=k d_{A}^{c}
+\end{equation}
+
+<h3> Exact treatment</h3>
+Considering some function:
+
+\begin{equation}
+f(\mathbf{x})=\sum_{\mathbf{k}} f_{\mathbf{k}} e^{i \mathbf{k} \cdot \mathbf{x}}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+a_{\ell m} &=\int d \Omega_{x} Y_{\ell m}^{*}(\hat{\mathbf{x}}) f(x \hat{\mathbf{x}}) \\
+&=\sum_{\mathbf{k}} \int d \Omega_{x} Y_{\ell m}^{*}(\hat{\mathbf{x}}) f_{\mathbf{k}} e^{i \mathbf{k} \cdot \mathbf{x}} \\
+&=4 \pi \sum_{\mathbf{k}} \sum_{\ell^{\prime} m^{\prime}} \int d \Omega_{x} f_{\mathbf{k}} Y_{\ell m}^{*}(\hat{\mathbf{x}}) i^{\ell^{\prime}} j_{\ell^{\prime}}(k x) Y_{\ell^{\prime} m^{\prime}}(\hat{\mathbf{x}}) Y_{\ell^{\prime} m^{\prime}}^{*}(\hat{\mathbf{k}}) \\
+&=4 \pi i^{\ell} \sum_{\mathbf{k}} f_{\mathbf{k}} j_{\ell}(k x) Y_{\ell m}^{*}(\hat{\mathbf{k}})
+\end{aligned}
+\label{eq:ktox}
+\end{equation}
+
+The corresponding result for a Fourier transform f(\mathbf{k})is
+\begin{equation}
+a_{\ell m}=\frac{4 \pi i^{\ell}}{(2 \pi)^{3}} \int d^{3} k f(\mathbf{k}) j_{\ell}(k x) Y_{\ell m}^{*}(\hat{\mathbf{k}})
+\end{equation}
+
+
+  <h1> Temperature anisotropy observed today</h1>
+
+
+We can write the observed temperature anisotropy as 
+
+\begin{equation}
+\left(\frac{\delta T}{T}\right)_{\mathrm{obs}}=\frac{1}{4} \delta_{\gamma}^{N}-\mathbf{v}^{N} \cdot \hat{\mathbf{n}}+\Phi\left(t_{\mathrm{dec}}, \mathbf{x}_{\mathrm{ls}}\right)+2 \int \dot{\Phi} d t
+\end{equation}
+ 
+
+Note that both the density perturbation $\delta_{\gamma}$ and the fluid velocity $\mathbf{v}$ are gauge dependent and we consider this in the <b>conformal-Newtonian gauge</b>, 
+ since the $\left(\frac{\delta T}{T}\right)_{\text {jour }}$, the integrated redshift perturbation along the line of sight, is easiest to calculate in this gauge. 
+ For large scales which are superhorizon at decoupling, 
+  
+ \begin{equation}
+\begin{aligned}
+\left(\frac{\delta T}{T}\right)_{\mathrm{obs}} &=-\frac{2}{3} \Phi\left(t_{\mathrm{dec}}, \mathrm{x}_{\mathrm{ls}}\right)+\Phi\left(t_{\mathrm{dec}}, \mathrm{x}_{\mathrm{ls}}\right)+2 \int \dot{\Phi} d t \\
+&=\frac{1}{3} \Phi\left(t_{\mathrm{dec}}, \mathrm{x}_{\mathrm{ls}}\right)+2 \int \dot{\Phi} d t
+\end{aligned}
+\end{equation}
+ The former is called Sachs-Wolfe effect, and the latter is the integrated Sachs-Wolfe effect.
+
+  <h2> Large scales - Sachs–Wolfe part of the spectrum </h2>
+\begin{equation}
+\left(\frac{\delta T}{T}\right)_{\mathrm{SW}}=\frac{1}{3} \Phi\left(t_{\mathrm{dec}}, \mathbf{x}_{\mathrm{ls}}\right)
+\end{equation}
+
+Using Eq.\ref{eq:ktox}, 
+\begin{equation}
+a_{\ell m}=4 \pi i^{\ell} \sum_{\mathbf{k}} \frac{1}{3} \Phi_{\mathbf{k}} j_{\ell}(k x) Y_{\ell m}^{*}(\hat{\mathbf{k}})
+\end{equation}
+
+    <h2> Small scales - Acoustic oscillations </h2>
+    <p class = "zero">
+For small scales, the baryon-photon fluid oscillates in these potential wells caused by the CDM. The potential $\Phi$ evolves at first but then becomes constant as the universe becomes matter dominated.
+</p>
+</body>
+</html>
