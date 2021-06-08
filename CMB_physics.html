@@ -13,61 +13,33 @@
         <!-- Load an icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  
 
-  
-  <script>
-  MathJax = {
-    tex: {
-      tags: 'ams',inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
+<script src="myscripts.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-<!-- <script>
-    MathJax = {
-      tex: {
-        
-      }
-    };
-  </script> -->
 
 </head>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+</script>
 
 
 <body>
 
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-
-  <script>
-    //Get the button
-    var mybutton = document.getElementById("myBtn");
-    
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-    
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
-
     <ul>
       <li><a class="active" href="https://jianyao.xyz/"><i class="fa fa-fw fa-home"></i> Home</a> </li>
-
+      <li><a class="active" href="Inflation.html"><i class="fa fa-car"></i> Inflation</a> </li>
       
       <!-- <li><a href="news.asp">News</a></li>
       <li><a href="contact.asp">Contact</a></li>
@@ -75,6 +47,7 @@
     </ul>
 
     <h1> CMB physics </h1>
+    <a href="https://astronomy.swin.edu.au/cosmos/b/Baryonic+Matter">Bayronic matter.</a> 
   <h2> Evolution of Potential $\Phi$ </h2>
   <ol>
     <li>Superhorizon, doesn't change much.</li>
@@ -94,7 +67,7 @@ $
 \Pi=\Theta_{2}+\Theta_{P, 2}+\Theta_{P, 0}.
 $
 
-We want to turn this differential equation for $\Theta(\eta, \mu)$ into an infinite set of coupled equations for $\Theta_{\ell}(\eta)$, 
+We want to turn this differential equation for $\Theta(\eta, k, \mu)$ into an infinite set of coupled equations for $\Theta_{\ell}(\eta, k)$ (see Eq.\ref{eq:multipoles}), 
 so we can see that the higher moments ($\ell > 1$) are small and so can be negelected.
   \begin{equation}
 \Theta_{l}^{\prime}+\frac{k}{(-i)^{l+1}} \int_{-1}^{1} \frac{d \mu}{2} \mu \mathcal{P}_{l}(\mu) \Theta(\mu)=\tau^{\prime} \Theta_{l} \quad(l>2)
@@ -112,12 +85,12 @@ Explanations: The mean free path of photons is very small in the tightly coupled
 
 
 <h2> First look </h2>
-  <p>
+<p>
     <img src="peaks.svg" alt="Image of a laptop" style="width:500px;height:400px;">
     </p>
-    
+
     <img src="delta.svg" alt="Image of a laptop" style="width:600px;height:600px;">
-  
+
 <h2>Multipole moments</h2>
 (Modern Cosmology, 2nd edition, P. 118)
 
@@ -241,7 +214,7 @@ a_{\ell m}=\frac{4 \pi i^{\ell}}{(2 \pi)^{3}} \int d^{3} k f(\mathbf{k}) j_{\ell
 \end{equation}
 
 
-  <h2> Temperature anisotropy observed today</h2>
+  <h2> Temperature anisotropy observed at Last Scattering Surface (Monopole and Dipole)</h2>
 
 
 We can write the observed temperature anisotropy as 
@@ -331,6 +304,30 @@ recombination.
 \end{equation}
 
 the first term is completely out of phase with the monopole.
+
+<h2> Anisotropy observed today -- free streaming</h2>
+
+<h3> Monopole and dipole seen today </h3>
+\begin{equation}
+\begin{aligned}
+\Theta_{l}\left(k, \eta_{0}\right) \simeq &\left[\Theta_{0}\left(k, \eta_{*}\right)+\Psi\left(k, \eta_{*}\right)\right] j_{l}\left[k\left(\eta_{0}-\eta_{*}\right)\right] \\
+&+3 \Theta_{1}\left(k, \eta_{*}\right)\left(j_{l-1}\left[k\left(\eta_{0}-\eta_{*}\right)\right]-(l+1) \frac{j_{l}\left[k\left(\eta_{0}-\eta_{*}\right)\right]}{k\left(\eta_{0}-\eta_{*}\right)}\right) \\
+&+\int_{0}^{\eta_{0}} d \eta e^{-\tau}\left[\Psi^{\prime}(k, \eta)-\Phi^{\prime}(k, \eta)\right] j_{l}\left[k\left(\eta_{0}-\eta\right)\right]
+\end{aligned}
+\end{equation}
+
+<p>
+  <img src="Monopole_dipole.jpg"Image of a laptop" style="width:500px;height:400px;">
+  </p>
+
+<h3> From $\Theta_{l}\left(k, \eta_{0}\right)$ to $C_{l}$</h3>
+\begin{equation}
+C_{l}=\frac{2}{\pi} \int_{0}^{\infty} d k k^{2} P(k)\left|\frac{\Theta_{l}(k)}{\delta(k)}\right|^{2}
+\end{equation}
+
+
+
+  <img src="Cl_today.jpg" alt="Image of a laptop" style="width:600px;height:600px;">
 
 </body>
 </html>

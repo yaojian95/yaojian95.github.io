@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CMB physics</title>
+  
+  <link rel = "icon" href = 
+"https://raw.githubusercontent.com/YJHelloWorld/YJHelloWorld.github.io/master/assets/spherical.png" 
+        type = "image/x-icon">
+  
+        <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script src="myscripts.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+</script>
+
+
+</head>
+
+<body>
+
+    <ul>
+        <li><a class="active" href="https://jianyao.xyz/"><i class="fa fa-fw fa-home"></i> Home</a> </li>
+        <li><a class="active" href="CMB_physics.html"><i class="fa fa-cloud"></i> Back</a> </li>
+        
+        <!-- <li><a href="news.asp">News</a></li>
+        <li><a href="contact.asp">Contact</a></li>
+        <li><a href="about.asp">About</a></li> -->
+      </ul>
+
+<h2>Statistical properties of Gaussian perturbations </h2>
+
+Going back to coordinate space, we find
+$$
+\langle g(\mathbf{x})\rangle=\left\langle\sum_{\mathbf{k}} g_{\mathbf{k}} e^{i \mathbf{k} \cdot \mathbf{x}}\right\rangle=\sum_{\mathbf{k}}\left\langle g_{\mathbf{k}}\right\rangle e^{i \mathbf{k} \cdot \mathbf{x}}=0
+$$
+The square of the perturbation can be written as
+$$
+g(\mathbf{x})^{2}=\sum_{\mathbf{k}} g_{\mathbf{k}}^{*} e^{-i \mathbf{k} \cdot \mathbf{x}} \sum_{\mathbf{k}^{\prime}} g_{\mathbf{k}^{\prime}} e^{i \mathbf{k}^{\prime} \cdot \mathbf{x}}
+$$
+since $g(\mathrm{x})$ is real. The typical amplitude of the perturbation is described by the variance, the expectation value of this square,
+
+\begin{aligned}
+\left\langle g(\mathbf{x})^{2}\right\rangle &=\sum_{\mathbf{k} \mathbf{k}^{\prime}}\left\langle g_{\mathbf{k}}^{*} g_{\mathbf{k}^{\prime}}\right\rangle e^{i\left(\mathbf{k}^{\prime}-\mathbf{k}\right) \cdot \mathbf{x}}=\sum_{\mathbf{k}}\left\langle\left|g_{\mathbf{k}}\right|^{2}\right\rangle=2 \sum_{\mathbf{k}} s_{\mathbf{k}}^{2} .=\left(\frac{2 \pi}{L}\right)^{3} \sum_{\mathbf{k}} \frac{1}{4 \pi k^{3}} \mathcal{P}(k) \\
+& \rightarrow \frac{1}{4 \pi} \int \frac{d^{3} k}{k^{3}} \mathcal{P}(k)=\int_{0}^{\infty} \frac{d k}{k} \mathcal{P}(k)=\int_{-\infty}^{\infty} \mathcal{P}(k) d \ln k
+\end{aligned}
+
+Note, an alternative definition for the power spectrum is
+\begin{equation}
+P(k) \equiv V\left\langle\left|g_{\mathbf{k}}\right|^{2}\right\rangle
+\end{equation}
+
+This $\mathcal{P}(k)$ is the common <font color="red"><i>dimensionless power spectrum</i> </font> $\Delta(k)$
+\begin{equation}
+P(k)=\frac{2 \pi^{2}}{k^{3}} \mathcal{P}(k)
+\end{equation}
+
+<h2> Tensor-to-scalar ratio</h2>
+Referring to Chapter 8.7 of Hannu's lecture.
+inflation generates primordial scalar perturbations $\mathcal{R}_{k}$ with the power spectrum 
+
+\begin{equation}
+\mathcal{P}_{\mathcal{R}}(k)=\left[\left(\frac{H}{\dot{\varphi}}\right)\left(\frac{H}{2 \pi}\right)\right]_{\mathcal{H}=a k}^{2}=\frac{1}{4 \pi^{2}}\left(\frac{H^{2}}{\dot{\varphi}}\right)_{t=t_{k}}^{2}
+\end{equation}
+
+and primordial tensor perturbations with the power spectrum
+
+\begin{equation}
+\mathcal{P}_{h}(k)=\frac{8}{M_{\mathrm{Pl}}^{2}}\left(\frac{H}{2 \pi}\right)_{t=t_{k}}^{2}
+\end{equation}
+
+The <font color="red"><i>tensor-to-scalar ratio </i> </font> is the ratio of the two primordial spectra
+
+\begin{equation}
+r \equiv \frac{\mathcal{P}_{h}(k)}{\mathcal{P}_{\mathcal{R}}(k)}=\frac{8}{M_{\mathrm{Pl}}^{2}}\left(\frac{\dot{\bar{\varphi}}}{H}\right)_{\mathcal{H}=k}^{2}
+\end{equation}
+
+Applying the slow-roll equations
+
+$
+H^{2}=\frac{V}{3 M_{\mathrm{Pl}}^{2}} \quad \text { and } \quad 3 H \dot{\varphi}=-V^{\prime} \quad \Rightarrow \quad \frac{\dot{\varphi}}{H}=-M_{\mathrm{Pl}}^{2} \frac{V^{\prime}}{V}
+$
+
+they become 
+
+\begin{equation}
+\begin{aligned}
+\mathcal{P}_{\mathcal{R}}(k) &=\frac{1}{24 \pi^{2}} \frac{1}{M_{\mathrm{Pl}}^{4}} \frac{V}{\varepsilon} \\
+\mathcal{P}_{h}(k) &=\frac{2}{3 \pi^{2}} \frac{V}{M_{\mathrm{Pl}}^{4}}
+\end{aligned}
+\end{equation}
+where $\varepsilon$ is the slow-roll parameter. The tensor-to-scalar ratio is thus
+\begin{equation}
+r \equiv \frac{\mathcal{P}_{h}(k)}{\mathcal{P}_{\mathcal{R}}(k)}=16 \varepsilon
+\end{equation}
+
+<h2>Harrison-Zeldovich spectrum</h2>
+Since during inflation, $V$ and $V^{\prime}$ change slowly while a wide range of scales $k$ exit the horizon. $\mathcal{P}_{\mathcal{R}}(k)$ and $\mathcal{P}_{h}(k)$ should be slowly varying functions of $k$. 
+We define the $\bf{spectral\ indices}$ $n_{s}$ and $n_{t}$ of the primordial spectra as
+
+\begin{equation}
+\begin{aligned}
+n_{s}(k)-1 & \equiv \frac{d \ln \mathcal{P}_{\mathcal{R}}}{d \ln k} \\
+n_{t}(k) & \equiv \frac{d \ln \mathcal{P}_{h}}{d \ln k} .
+\end{aligned}
+\end{equation}
+
+if the spectral index is independent of $k$, we say that the spectrum is $\bf{scale \ free}$. In this case the primordial spectra have the power-law form
+\begin{equation}
+\mathcal{P}_{\mathcal{R}}(k)=A_{s}^{2}\left(\frac{k}{k_{p}}\right)^{n_{s}-1} \quad \text { and } \quad \mathcal{P}_{h}(k)=A_{t}^{2}\left(\frac{k}{k_{p}}\right)^{n_{t}}
+\end{equation}
+where $k_{p}$ is some chosen reference scale, "pivot scale", and $A_{s}$ and $A_{t}$ are the amplitudes at this pivot scale.
+
+If the power spectrum is constant,
+$$
+\mathcal{P}=\text { const. }
+$$
+corresponding to $n_{s}=1$ and $n_{t}=0$, we say that the spectrum is scale invariant. A scaleinvariant scalar spectrum is also called the Harrison-Zeldovich spectrum.
+
+<h2>Consistency condition</h2>
+
+\begin{equation}
+n_{t}=-\frac{r}{8}
+\end{equation}
+
+<h2> comoving curvature perturbation $\mathcal{R}$ and density perturbation </h2>
+For small scales, the gravitational potential and density perturbation are related to the
+curvature perturbation as
+
+\begin{equation}
+\begin{aligned}
+\Phi_{\mathbf{k}} &=-\frac{3}{5} \mathcal{R}_{\mathbf{k}} \quad(\text { mat.dom, subhorizon}) \\
+\delta_{\mathbf{k}} &=-\frac{2}{3}\left(\frac{k}{\mathcal{H}}\right)^{2} \Phi_{\mathbf{k}}=\frac{2}{5}\left(\frac{k}{\mathcal{H}}\right)^{2} \mathcal{R}_{\mathbf{k}}
+\end{aligned}
+\end{equation}
+
+For the scale-invariant primordial power spectrum
+\begin{equation}
+\mathcal{P}_{\mathcal{R}}(k)=A_{s}^{2}=\text { const. }
+\end{equation}
+giving 
+\begin{equation}
+\begin{aligned}
+\mathcal{P}_{\Phi}(k) &=\frac{9}{25} \mathcal{P}_{\mathcal{R}}(k)=\frac{9}{25} A_{s}^{2}=\text { const } \\
+\mathcal{P}_{\delta}(t, k) &=\frac{4}{9}\left(\frac{k}{\mathcal{H}}\right)^{4} \mathcal{P}_{\Phi}(k)=\frac{4}{25}\left(\frac{k}{\mathcal{H}}\right)^{4} \mathcal{P}_{\mathcal{R}}(k) \\
+&=\frac{4}{25}\left(\frac{k}{\mathcal{H}}\right)^{4} A_{s}^{2} \propto t^{4 / 3} k^{4}
+\end{aligned}
+\end{equation}
+Thus perturbations in the gravitational potential are scale invariant, but perturbations in density
+are not. Instead the density perturbation spectrum is steeply rising, meaning that there is much
+more structure at small scales than at large scales. Thus the scale invariance refers to the
+gravitational aspect of perturbations.
+
+The relation between density and gravitational potential perturbations reflects the nature of
+gravity: A 1% overdense region 100 Mpc across generates a much deeper potential well than a
+1% overdense region 10 Mpc across, since the former has 1000 times more mass. Therefore we
+need much stronger density perturbations at smaller scales to have an equal contribution to $\Phi$.
+
+However, if we extrapolate above equation back to horizon entry, $k = \mathcal{H}$, we get
+\begin{equation}
+\delta_{H}^{2}(k) \equiv " \mathcal{P}_{\delta}\left(k, t_{k}\right) " \equiv \frac{4}{25} \mathcal{P}_{\mathcal{R}}(k)=\left(\frac{2}{5} A_{s}\right)^{2}=\mathrm{const}
+\end{equation}
+
+Thus for scale-invariant primordial perturbations, <font color="red"><i>density perturbations of all scales enter the horizon with the same amplitude</i> </font>(Same aspect with Carlo's lecture.).
+</body>
+</html>
