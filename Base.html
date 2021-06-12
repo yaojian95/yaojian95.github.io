@@ -7,6 +7,14 @@
   <title>Basics</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="myscripts.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 </head>
 
 <body>
@@ -19,4 +27,32 @@
         <li><a class="active" href="Euler_equation.html"><i class="fa fa-fw fa-home"></i> Euler_of_state</a> </li>
 
 
+\begin{equation}
+  \begin{aligned}
+  \vec{a}_{\mathrm{con}} &=\underbrace{(\vec{v} \cdot \vec{\nabla})}_{\text{directional derivative}} \vec{v} \\
+  &=\left[\left(\begin{array}{c}
+  v_{x} \\
+  v_{y} \\
+  v_{z}
+  \end{array}\right) \cdot\left(\begin{array}{c}
+  \frac{\partial}{\partial x} \\
+  \frac{\partial}{\partial y} \\
+  \frac{\partial}{\partial z}
+  \end{array}\right)\right] \cdot\left(\begin{array}{c}
+  v_{x} \\
+  v_{y} \\
+  v_{z}
+  \end{array}\right) \\
+  &=\left[v_{x} \frac{\partial}{\partial x}+v_{y} \frac{\partial}{\partial y}+v_{z} \frac{\partial}{\partial z}\right] \cdot\left(\begin{array}{c}
+  v_{x} \\
+  v_{y} \\
+  v_{z}
+  \end{array}\right) \\
+  &=\left(\begin{array}{c}
+  v_{{x}} \frac{\partial v_{{x}}}{\partial x}+v_{{y}} \frac{\partial v_{{x}}}{\partial y}+v_{{z}} \frac{\partial v_{{x}}}{\partial z} \\
+  v_{{x}} \frac{\partial v_{{y}}}{\partial x}+v_{{y}} \frac{\partial v_{{y}}}{\partial y}+v_{{z}} \frac{\partial v_{{y}}}{\partial z} \\
+  v_{{x}} \frac{\partial v_{{z}}}{\partial x}+v_{{y}} \frac{\partial v_{{z}}}{\partial y}+v_{{z}} \frac{\partial v_{{z}}}{\partial z}
+  \end{array}\right)
+  \end{aligned}
+  \end{equation}
 </body>
