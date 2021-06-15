@@ -55,6 +55,7 @@ window.onscroll = function() {scrollFunction()};
     <li>  During matter domination, $\Phi$ does not even evolve inside the horizon.</li>
   </ol>
 
+  
 
   <h2>Boltzmann Equation</h2>
   Boltzmann Equation for photons:
@@ -264,6 +265,12 @@ In the tightly-coupled limit, we can have two homogeneous solutions
 S_{1}(k, \eta)=\sin \left[k r_{s}(\eta)\right] ; \quad S_{2}(k, \eta)=\cos \left[k r_{s}(\eta)\right]
 \label{eq:homo}
 \end{equation}
+where 
+\begin{equation}
+r_{s}(t) \equiv \int_{0}^{\eta} c_{s} d \eta=\int_{0}^{t} \frac{c_{s}(t)}{a(t)} d t
+\end{equation}
+
+We call this quantity $r_s(t)$ the sound horizon at time t, since it represents the comoving distance sound(the perturbation) has traveled by time t.
 
 The tightly-coupled solution for the photon temperature can be constructed from the homogeneous solutions Eq.\ref{eq:homo},
 
@@ -291,6 +298,24 @@ Eq. \ref{eq:monopole} is an expression for the anisotropy in the tightly-coupled
 which only excite the cosine mode. This follows directly from the fact that perturbations were generated when they exited the horizon during inflation, and remained constant outside the horizon. 
 The pure-cosine initial conditions lead to the coherent oscillations in $\Theta+\Phi$. Alternative scenarios, which generate the perturbations when the modes enter the horizon, 
 would typically predict that both sine and cosine modes are present. In that case, there would not be a clear peak/trough structure in $\Theta_{0}$.
+<br>
+At the decoupling oscillations for scales $k$ which have
+$$
+k r_{s}\left(t_{\mathrm{dec}}\right)=m \pi
+$$
+$(m=1,2,3, \ldots)$ are at their extreme values (maximum compression or maximum decompression). Therefore we see strong structure in the CMB anisotropy today at the multipoles ($j_l(kx)$ peaks at $l \sim kx$)
+$$
+\ell=k d_{A}^{c}\left(t_{\mathrm{dec}}\right)=m \pi \frac{d_{A}^{c}\left(t_{\mathrm{dec}}\right)}{r_{s}\left(t_{\mathrm{dec}}\right)} \equiv m \ell_{A}
+$$
+corresponding to these scales and here $d_{A}^{c}\left(t_{\mathrm{dec}}\right)$ is the comoving distance from us to the last scattering surface. 
+$$
+\ell_{A} \equiv \pi \frac{d_{A}^{c}\left(t_{\mathrm{dec}}\right)}{r_{s}\left(t_{\mathrm{dec}}\right)} \equiv \frac{\pi}{\vartheta_{s}}
+$$
+is the acoustic scale in multipole space and
+\begin{equation}
+\vartheta_{s} \equiv \frac{r_{s}\left(t_{\mathrm{dec}}\right)}{d_{A}^{c}\left(t_{\mathrm{dec}}\right)}
+\end{equation}
+is the <font color="red">sound horizon angle</font>, i.e., the angle at which we see the sound horizon on the last scattering surface. So $m=1$ corresponds to the first peak in the CMB angular power spectrum which is the size of sound horizon.
 
 <p>
 In addition to the monopole, the photon distribution has a nonnegligible dipole at
