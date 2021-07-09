@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Power_spectrum_estimation</title>
+  
+  <link rel = "icon" href = 
+"https://raw.githubusercontent.com/YJHelloWorld/YJHelloWorld.github.io/master/assets/spherical.png" 
+        type = "image/x-icon">
+  
+        <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script src="myscripts.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+</head>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+</script>
+
+
+<body>
+    <ul>
+        <li><a class="active" href="CMB_physics.html"><i class="fa fa-cloud"></i> Back</a> </li>
+<h1>Pseudo-power spectrum estimator</h1>
+
+<h2>pseudo basis $\tilde{Y}_{\ell m} \equiv W Y_{\ell m}$</h2>   
+where the window function $W$ is a function on the sphere that is different from zero only inside the
+observed region.
+
+<h1>Mode coupling and E to B leakage</h1>
+
+<h2>E-B decomposition</h2>
+<h3>Stokes parameters</h3>
+
+The parameters $I$ and $V$ are physical observables independent of the coordinate system, but Q and U depend on the orientation of the x and y axes
+<a href="https://ned.ipac.caltech.edu/level5/Kosowsky/Kosowsky2.html">IQUV.</a> 
+<br></br>
+(Dacide's thesis)
+<br></br>
+It is important to notice how the Stokes parameters change under parity change and rotation of the reference coordinate system. $I$ is a scalar while $V$ is a pseudo-scalar 
+(it changes sign under parity transformation).
+
+More important to us, Q and U change if the x-y plane is rotated by an angle $\theta$. One
+can easily show that in the new system x'-y':
+
+\begin{equation}
+\left(Q^{\prime} \pm i U^{\prime}\right)=e^{\mp 2 \theta i}(Q \pm i U)
+\end{equation}
+
+or, equivalently, one can gather Q and U in a 2-vector and express the same relation as
+
+\begin{equation}
+\left(\begin{array}{c}
+Q \\
+U
+\end{array}\right)^{\prime}=\left[\begin{array}{cc}
+\cos (2 \theta) & \sin (2 \theta) \\
+-\sin (2 \theta) & \cos (2 \theta)
+\end{array}\right]\left(\begin{array}{c}
+Q \\
+U
+\end{array}\right)
+\end{equation}
+
+This relations express the spin-2 nature of the linear polarization field that can thus be represented as a head-less vector. 
+The factor of two before $\theta$ represents the fact that any polarization ellipse is indistinguishable from one rotated by 180° 
+<a href="https://en.wikipedia.org/wiki/Stokes_parameters#Definitions">WIKI</a> .
+
+<h3>Spin weighted spherical harmonics</h3>
+\begin{equation}
+\begin{aligned}
+T(\hat{\boldsymbol{n}}) &=\sum_{l m} a_{l m} Y_{l m}(\hat{\boldsymbol{n}}) \\
+(Q \mp i U)(\hat{\boldsymbol{n}}) &=\sum_{l m} {}_{\pm 2} a_{l m} {}_{\pm 2} Y_{l m}(\hat{\boldsymbol{n}})
+\end{aligned}
+\end{equation}
+
+<br>$$\bf{Some \quad mathematics}$$</br>
+
+$\eth (\bar{\eth})$ corresponds to the spin-raising
+(lowering) operator for an arbitrary function ${}_sf(\hat n)$ with spin $s$,
+\begin{eqnarray}
+\eth {}_sf(\hat n) \equiv -\sin^s \theta \left(\frac{\partial}{\partial \theta} + \frac{i}{\sin \theta}\frac{\partial}{\partial \phi}\right) \sin^{-s}\theta {}_s f(\hat n) , \\
+\bar{\eth} {}_s f(\hat n) \equiv -\sin^{-s} \theta \left(\frac{\partial}{\partial \theta} - \frac{i}{\sin \theta}\frac{\partial}{\partial \phi}\right) \sin^s\theta {}_sf(\hat n) ,
+\end{eqnarray}
+
+If $f$ is a spin- $s$ function, then $\eth f$ has spin $s+1$. Conversely, if $f$ has spin- $s$ function, then $\bar{\eth} f$ has spin $s-1$.
+
+Therefore the spherical harmonics with spin ±2 can be derived from the spin-0 spherical harmonics as
+
+\begin{equation}
+\begin{gathered}
+{ }_{2} Y_{l m}=[(l-2) ! /(l+2) !]^{1 / 2} \eth \eth Y_{l m} \\
+{-2} Y_{l m}=[(l-2) ! /(l+2) !]^{1 / 2} \bar{\eth} \bar{\eth} Y_{l m}
+\end{gathered}
+\end{equation}
+
+<h3>E-B decomposition(Davide's thesis)</h3>
+
+A vector field (spin 1) on a two dimensional manifold can be decomposed into a gradient and a curl
+component by the Helmholtz theorem. Similarly the spin ±2 polarization field can be naturally expressed
+in terms of its gradient and curl components, respectively called E and B fields in analogy with the
+electromagnetism. They are both spin-0 fields, their harmonic coefficients can be derived from those of
+the harmonic coefficients of the spin-2 field
+
+\begin{equation}
+\begin{gathered}
+a_{\ell m}^E=-\frac{1}{2}\left(_2 a_{\ell m}+_{-2} a_{\ell m}\right) \\
+a_{\ell m}^B=\frac{i}{2}\left({ }_{2} a_{\ell m}-{ }_{-2} a_{\ell m}\right)
+\end{gathered}
+\end{equation}
+
+Conversely, Q and U can be written in terms of E and B:
+\begin{equation}
+\begin{aligned}
+Q &=-\sum_{\ell m}\left(a_{\ell m}^E { }_{1} X_{\ell m}+i a_{\ell m}^B{ }_{2} X_{\ell m}\right) \\
+U &=-\sum_{\ell m}\left(a_{\ell m}^E { }_{1} X_{\ell m}+i a_{\ell m}^E{ }_{2} X_{\ell m}\right)
+\end{aligned}
+\end{equation}
+
+where ${ }_{1} X_{\ell m} \equiv\left({ }_{2} Y_{\ell m}+{ }_{-2} Y_{\ell m}\right) / 2$ and 
+${ }_{2} X_{\ell m} \equiv\left({ }_{2} Y_{\ell m}-{ }_{-2} Y_{\ell m}\right) / 2$.
+Group Q and U into a column vector P : $\boldsymbol{P}(\boldsymbol{x}) \equiv\left(\begin{array}{c}Q \\ U\end{array}\right)(\boldsymbol{x})$:
+
+\begin{equation}
+\boldsymbol{P}=-\sum_{\ell m}\left(a_{\ell m}^E \boldsymbol{Y}^E_{\ell m}+a^B_{\ell m}\boldsymbol{Y}^B_{\ell m}\right)
+\end{equation}
+where the basis for the electric and magnetic component of the spin-2 spherical harmonics is defined as
+\begin{equation}
+\begin{array}{r}
+\boldsymbol{Y}^E_{\ell m} \equiv\left(\begin{array}{c}
+{ }_{1} X_{\ell m} \\
+-i{ }_{2} X_{\ell m}
+\end{array}\right)=\boldsymbol{D}_{E} Y_{\ell m} \\
+\boldsymbol{Y}^B_{\ell m} \equiv\left(\begin{array}{c}
+i_{2} X_{\ell m} \\
+{ }_{1} X_{\ell m}
+\end{array}\right)=\boldsymbol{D}_{B} Y_{\ell m}
+\end{array}
+\end{equation}
+The second order differential operators in the second equality are defined as
+
+
+\begin{equation}
+\begin{aligned}
+\boldsymbol{D}_{E} & \equiv \frac{1}{2}\left(\begin{array}{c}
+\eth\eth+\bar{\eth} \bar{\eth} \\
+-i(\eth \eth-\bar{\eth} \bar{\eth})
+\end{array}\right) \\
+\boldsymbol{D}_{B} & \equiv \frac{1}{2}\left(\begin{array}{c}
+i(\eth \eth-\bar{\eth} \bar{\eth}) \\
+\eth \eth+\bar{\eth} \bar{\eth}
+\end{array}\right)
+\end{aligned}
+\end{equation}
+
+<h3>Complete coupling matrix(Davide's thesis and appendix A of <a href="https://academic.oup.com/mnras/article/360/4/1262/1077424?login=true">M. L. Brown et.al., 2005</a>)</h3>
+
+
+\begin{equation}
+\left\langle\left(\begin{array}{c}
+\tilde{C}_{\ell}^{T T} \\
+\tilde{C}_{\ell}^{T E} \\
+\tilde{C}_{\ell}^{T B} \\
+\tilde{C}_{\ell}^{E E} \\
+\tilde{C}_{\ell}^{E B} \\
+\tilde{C}_{\ell}^{B B}
+\end{array}\right) \right\rangle= \sum_{\ell'}\left(\begin{array}{cccccc}
+M_{\ell \ell^{\prime}}^{00} & & & & & \\
+& M_{\ell \ell^{\prime}}^{0+} & M_{\ell \ell^{\prime}}^{0-} & & & \\
+& -M_{\ell \ell^{\prime}}^{0-} & M_{\ell \ell^{\prime}}^{0+} & & & \\
+& & & M_{\ell \ell^{\prime}}^{++} & \left(M_{\ell \ell^{\prime}}^{-+}+M_{\ell \ell^{\prime}}^{+-}\right) & M_{\ell \ell^{\prime}}^{--} \\
+& & & -M_{\ell \ell^{\prime}}^{+-} & \left(M_{\ell \ell^{\prime}}^{++} - M_{\ell \ell^{\prime}}^{--}\right) & M_{\ell \ell^{\prime}}^{-+} \\
+& & & M_{\ell \ell^{\prime}}^{--} & -\left(M_{\ell \ell^{\prime}}^{-+}+M_{\ell \ell^{\prime}}^{+-}\right) & M_{\ell \ell^{\prime}}^{++}
+\end{array}\right)\left(\begin{array}{l}
+C_{\ell'}^{T T} \\
+C_{\ell'}^{T E} \\
+C_{\ell'}^{T B} \\
+C_{\ell'}^{E E} \\
+C_{\ell'}^{E B} \\
+C_{\ell'}^{B B}
+\end{array}\right)
+\end{equation}
+
+The presence of many zero blocks is due to the fact that the pseudo basis does not mix temperature
+and polarization. However, the polarization pseudo-basis mixes $E$ and $B$ modes whenever the $M^{−−}$ block
+is not zero, causing a problem analogous to the mixing of power from different $\ell$s with very different
+$C_{\ell}$s. <u>The mixing matrix quantifies which fraction of the $E$ power leaks into the pseudo-$B$ and effectively
+corrects for it when applying the inverted mixing matrix on the pseudo-power spectrum. However, the
+cosmic variance of EE severely affects the BB uncertainty, especially at large scales</u>. This problem is
+overcome by using the <b>pure estimators</b>.
+
+</body>
+</html>
