@@ -40,7 +40,13 @@ window.onscroll = function() {scrollFunction()};
         <li><a class="active" href="CMB_physics.html"><i class="fa fa-cloud"></i> Back</a> </li>
 <h1>Pseudo-power spectrum estimator</h1>
 
-<h2>pseudo basis $\tilde{Y}_{\ell m} \equiv W Y_{\ell m}$</h2>   
+<h2>pseudo basis </h2>   
+\begin{equation}
+\boxed{
+\tilde{Y}_{\ell m} \equiv W Y_{\ell m}, \text{c.f. Eq.\ref{eq:pseudo_EB}}
+}
+\label{eq:pseudo_TT}
+\end{equation}
 where the window function $W$ is a function on the sphere that is different from zero only inside the
 observed region.
 
@@ -52,7 +58,7 @@ observed region.
 The parameters $I$ and $V$ are physical observables independent of the coordinate system, but Q and U depend on the orientation of the x and y axes
 <a href="https://ned.ipac.caltech.edu/level5/Kosowsky/Kosowsky2.html">IQUV.</a> 
 <br></br>
-(Dacide's thesis)
+(Davide's thesis)
 <br></br>
 It is important to notice how the Stokes parameters change under parity change and rotation of the reference coordinate system. $I$ is a scalar while $V$ is a pseudo-scalar 
 (it changes sign under parity transformation).
@@ -111,7 +117,7 @@ Therefore the spherical harmonics with spin ±2 can be derived from the spin-0 s
 \end{gathered}
 \end{equation}
 
-<h3>E-B decomposition(Davide's thesis)</h3>
+<h3>E-B decomposition(Davide's thesis, Bunn et.al., 2003)</h3>
 
 A vector field (spin 1) on a two dimensional manifold can be decomposed into a gradient and a curl
 component by the Helmholtz theorem. Similarly the spin ±2 polarization field can be naturally expressed
@@ -153,6 +159,7 @@ i_{2} X_{\ell m} \\
 { }_{1} X_{\ell m}
 \end{array}\right)=\boldsymbol{D}_{B} Y_{\ell m}
 \end{array}
+\label{eq:basis_EB}
 \end{equation}
 The second order differential operators in the second equality are defined as
 
@@ -170,8 +177,19 @@ i(\eth \eth-\bar{\eth} \bar{\eth}) \\
 \end{aligned}
 \end{equation}
 
-<h3>Complete coupling matrix(Davide's thesis and appendix A of <a href="https://academic.oup.com/mnras/article/360/4/1262/1077424?login=true">M. L. Brown et.al., 2005</a>)</h3>
+$\boldsymbol{D}_{E}$ and $\boldsymbol{D}_{B} $ are the spin-2 analogues of the familiar gradient and curl operators. Applying $\boldsymbol{D}_{E}$ or $\boldsymbol{D}_{B}$ to a scalar field
+gives $E$ and $B$ fields that have vanishing "curl" and "gradient" respectively. 
 
+<h3>Standard pseudo-$C_{\ell}$ method for EE and BB power spectra</h3>
+
+\begin{equation}
+\boxed{
+    \pm 2 \tilde{Y}_{\ell m} \equiv W_{\pm 2} Y_{\ell m}, \text{c.f. Eq.\ref{eq:pseudo_TT}, \ref{eq:pseudo_pure}}
+}
+\label{eq:pseudo_EB}
+\end{equation}
+
+Complete coupling matrix(Davide's thesis and appendix A of <a href="https://academic.oup.com/mnras/article/360/4/1262/1077424?login=true">M. L. Brown et.al., 2005</a>)
 
 \begin{equation}
 \left\langle\left(\begin{array}{c}
@@ -198,6 +216,7 @@ C_{\ell'}^{B B}
 \end{array}\right)
 \end{equation}
 
+<br>See also <a href="https://academic.oup.com/mnras/article/484/3/4127/5289876#equ28"> Namaster Eq.28 </a></br>
 The presence of many zero blocks is due to the fact that the pseudo basis does not mix temperature
 and polarization. However, the polarization pseudo-basis mixes $E$ and $B$ modes whenever the $M^{−−}$ block
 is not zero, causing a problem analogous to the mixing of power from different $\ell$s with very different
@@ -205,6 +224,35 @@ $C_{\ell}$s. <u>The mixing matrix quantifies which fraction of the $E$ power lea
 corrects for it when applying the inverted mixing matrix on the pseudo-power spectrum. However, the
 cosmic variance of EE severely affects the BB uncertainty, especially at large scales</u>. This problem is
 overcome by using the <b>pure estimators</b>.
+<br>Also see Namaster paper</br>
+B-mode purification refers to the map-level removal of the
+contamination from E modes in the B-mode component of a given
+map caused by an incomplete sky coverage and vice versa. The
+procedure is particularly useful in situations in which the E-mode
+component of the signal is significantly larger than the B modes,
+as is the case in for the CMB. In this case, removing the leakage
+at the power-spectrum level (i.e. the standard pseudo-$C_{\ell}$ approach)
+produces a suboptimal estimator in which the variance in the Bmode power spectrum is dominated by the variance of the leaked
+E modes. 
+
+<h3>E/B purification</h3>
+Contruct a pure B pseudo-basis
+
+\begin{equation}
+\tilde{\boldsymbol{Y}}_{\ell m}^B \equiv \boldsymbol{D}_{B}\left(W Y_{\ell m}\right), \text{c.f. Eq.\ref{eq:pseudo_EB}, \ref{eq:basis_EB}}
+\label{eq:pseudo_pure}
+\end{equation}
+See Namaster Eq.29
+\begin{eqnarray*}
+B^p_{\ell m}= \int \text{d}\hat{\boldsymbol {\theta }} \tilde{\boldsymbol{Y}}_{\ell m}^{B^\dagger}  
+{\boldsymbol P}(\hat{\boldsymbol {\theta }})= \int \text{d}\hat{\boldsymbol {\theta }}\left({\boldsymbol D}_{B}(W\, Y_{\ell m})\right)^\dagger \, {\boldsymbol P}(\hat{\boldsymbol {\theta }}).
+\end{eqnarray*}
+
+Since ${\boldsymbol D}_{B}(W\, Y_{\ell m})$ is a B-mode quantity, $B^p_{\ell m}$ should receive contributions only from B modes.
+
+<p>
+    <img src="https://photos.google.com/photo/AF1QipMnoD9YRjz_tK-p3ktYURlll28bxDAs8WZi-ZO3" alt ="lower_variance_for_purified_BB" style="width:500px;height:400px;">
+    </p>
 
 </body>
 </html>
