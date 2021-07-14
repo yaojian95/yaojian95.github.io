@@ -38,17 +38,81 @@ window.onscroll = function() {scrollFunction()};
 <body>
     <ul>
         <li><a class="active" href="CMB_physics.html"><i class="fa fa-cloud"></i> Back</a> </li>
+    </ul>
+
+<h1>Maximum Likelihood estimator</h1>
+Suppose that the available sky map is
+\begin{equation}
+\boldsymbol{x}=\boldsymbol{s}+\boldsymbol{n}
+\end{equation}
+
+where s is the actual sky signal and n is the noise contribution, we denote its covariance matrix as N.
+And we call the covariance matrix of the signal C
+\begin{equation}
+C\left(\hat{\boldsymbol{x}}, \hat{\boldsymbol{x}}^{\prime}\right) \equiv\left\langle X^{*}(\hat{\boldsymbol{x}}) X\left(\hat{\boldsymbol{x}}^{\prime}\right)\right\rangle
+\end{equation}
+
+If we assume statistical isotropy $C\left(\hat{\boldsymbol{x}}, \hat{\boldsymbol{x}}^{\prime}\right)$ becomes a function of only $\hat{x} · x'$ and it can be expanded on the
+Legendre polynomial
+
+\begin{equation}
+C\left(\hat{\boldsymbol{x}} \cdot \hat{\boldsymbol{x}}^{\prime}\right)=\frac{1}{4 \pi} \sum_{\ell=0}^{\infty}(2 \ell+1) C_{\ell} P_{\ell}\left(\hat{\boldsymbol{x}} \cdot \hat{\boldsymbol{x}}^{\prime}\right)
+\end{equation}
+
+Assuming signal and noise to be uncorrelated, the probability of a realisation of x and likelihood
+function for the power spectrum is 
+
+\begin{equation}
+P\left(\boldsymbol{x} \mid C_{\ell}\right)=\mathcal{L}\left(C_{\ell}\right)=\frac{\exp \left\{-\frac{1}{2} \boldsymbol{x}^{\top}(\boldsymbol{N}+\boldsymbol{C})^{-1} \boldsymbol{x}\right\}}{\sqrt{(2 \pi)^{\mathcal{N}_{p}} \operatorname{det}(\boldsymbol{N}+\boldsymbol{C})}}
+\end{equation}
+
+where the dependence on the power spectrum $C_{\ell}$ is inside $C$. 
+
 <h1>Pseudo-power spectrum estimator</h1>
 
-<h2>pseudo basis </h2>   
-\begin{equation}
+<h2>pseudo basis for temperature</h2>   
+\begin{equation}\label{eq:pseudo_TT}
 \boxed{
 \tilde{Y}_{\ell m} \equiv W Y_{\ell m}, \text{c.f. Eq.\ref{eq:pseudo_EB}}
 }
-\label{eq:pseudo_TT}
 \end{equation}
 where the window function $W$ is a function on the sphere that is different from zero only inside the
-observed region.
+observed region. (Smith 2006) Also, the performance of the estimators is improved (on angular scales with signal-to-noise ratio < 1) by choosing W(x) to be smaller where the noise is larger, in order to <font color = 'red'>downweight noisy regions</font>. 
+Frequently, the weight function is also apodized near the survey boundary,
+in order to reduce <font color = 'red'>harmonic ringing</font>.
+
+\begin{equation}
+\tilde{a}_{\ell m} \equiv \int \tilde{Y}_{\ell m}^{*} s \mathrm{~d} \Omega = \int \tilde{Y}_{\ell m}^{*} \sum_{\ell^{\prime} m^{\prime}} a_{\ell^{\prime} m^{\prime}} Y_{\ell^{\prime} m^{\prime}} \mathrm{d} \Omega=\sum_{\ell^{\prime} m^{\prime}} K_{\ell m \ell^{\prime} m^{\prime}}^{0} a_{\ell^{\prime} m^{\prime}}
+\end{equation}
+
+\begin{equation}
+K_{\ell m \ell^{\prime} m^{\prime}}^{0} \equiv \int \tilde{Y}_{\ell m}^{*} Y_{\ell^{\prime} m^{\prime}} \mathrm{d} \Omega
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\tilde{C}_{\ell} &=\sum_{m=-\ell}^{\ell} \frac{\tilde{a}_{\ell m}^{*} \tilde{a}_{\ell m}}{2 \ell+1} \\
+&=\sum_{m=-\ell}^{\ell} \frac{1}{2 \ell+1} \sum_{\ell^{\prime} m^{\prime} \ell^{\prime \prime} m^{\prime \prime}} a_{\ell^{\prime} m^{\prime}}^{*} a_{\ell^{\prime \prime} m^{\prime \prime}} K_{\ell m \ell^{\prime} m^{\prime}}^{0}\left(K_{\ell m \ell^{\prime \prime} m^{\prime \prime}}^{0}\right)^{*}
+\end{aligned}
+\end{equation}
+
+Assuming statistical isotropy, i.e., $\left\langle a_{\ell^{\prime} m^{\prime}}^{*} a_{\ell^{\prime \prime} m^{\prime \prime}}\right\rangle= C_{\ell'}\delta_{\ell' \ell''} \delta_{m'm''}$, 
+the expected value of the  pseudo-power spectrum simplifies to
+
+\begin{equation}
+\left\langle\tilde{C}_{\ell}\right\rangle=\sum_{\ell^{\prime}} M_{\ell \ell^{\prime}} C_{\ell^{\prime}}
+\end{equation}
+
+\begin{equation}
+M_{\ell \ell^{\prime}} \equiv \sum_{m=-\ell}^{\ell} \sum_{m^{\prime}=-\ell^{\prime}}^{\ell^{\prime}} \frac{1}{2 \ell+1} K_{\ell m \ell^{\prime} m^{\prime}}^{0}\left(K_{\ell m \ell^{\prime} m^{\prime}}^{0}\right)^{*}
+\end{equation}
+
+Armed with these relations, the true auto- and cross-power spectra can be estimated from the pseudo-power spectra by inverting above equation
+\begin{equation}
+C_{\ell}=\sum_{\ell^{\prime}} M^{-1}_{\ell \ell^{\prime}} \left\langle \tilde{C}_{\ell^{\prime}} \right\rangle
+\end{equation}
+
+
 
 <h1>Mode coupling and E to B leakage</h1>
 
@@ -250,9 +314,12 @@ B^p_{\ell m}= \int \text{d}\hat{\boldsymbol {\theta }} \tilde{\boldsymbol{Y}}_{\
 
 Since ${\boldsymbol D}_{B}(W\, Y_{\ell m})$ is a B-mode quantity, $B^p_{\ell m}$ should receive contributions only from B modes.
 
-See Namaster Fig.11. 
+See Namaster Fig.11 and Smith 2006 Fig.7. 
 <p>
     <img src="lower_variance_purified_BB.jpg" alt ="lower_variance_for_purified_BB" style="width:500px;height:450px;">
+    </p>
+<p>
+    <img src="better_r.jpg" alt ="better_r_constraint_for_purified_BB" style="width:900px;height:450px;">
     </p>
 
 </body>
