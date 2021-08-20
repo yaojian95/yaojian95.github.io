@@ -70,7 +70,17 @@ where the dependence on the power spectrum $C_{\ell}$ is inside $C$.
 
 <h1>Pseudo-power spectrum estimator</h1>
 
-<h2>pseudo basis for temperature</h2>   
+<h2>pseudo basis for temperature</h2>  
+For full sky survey, 
+\begin{equation}
+{a}_{\ell m} \equiv \int{Y}_{\ell m}^{*} s \mathrm{~d} \Omega
+\end{equation}
+
+For a cut sky survey, $\tilde{s} = Ws$
+
+\begin{equation}
+\tilde{a}_{\ell m} \equiv \int{Y}_{\ell m}^{*} \tilde{s} \mathrm{~d} \Omega = \int{Y}_{\ell m}^{*} Ws \mathrm{~d} \Omega = \int \tilde{Y}_{\ell m}^{*} s \mathrm{~d} \Omega
+\end{equation}
 \begin{equation}\label{eq:pseudo_TT}
 \boxed{
 \tilde{Y}_{\ell m} \equiv W Y_{\ell m}, \text{c.f. Eq.\ref{eq:pseudo_EB}}
@@ -244,6 +254,19 @@ i(\eth \eth-\bar{\eth} \bar{\eth}) \\
 $\boldsymbol{D}_{E}$ and $\boldsymbol{D}_{B} $ are the spin-2 analogues of the familiar gradient and curl operators. Applying $\boldsymbol{D}_{E}$ or $\boldsymbol{D}_{B}$ to a scalar field
 gives $E$ and $B$ fields that have vanishing "curl" and "gradient" respectively. 
 
+<h4>Basis for polarization fields Bunn et.al., 2003</h4>
+
+On a manifold without boundary, any polarization field can be uniquely separated into an E part and a B part. But if
+there is a boundary, i.e., if only some subset $\Omega$ of the sky has
+been observed, this decomposition is not unique. We can represent the space of all polarization fields on $\Omega$ as a direct sum of three subspaces: pure E, pure B, and
+ambiguous modes, which are modes that satisfy both the E-mode and B-mode conditions simultaneously. 
+
+In the quest of separating the E and B contributions the ambiguous modes are not very useful, since we cannot know
+whether they are due to a cosmological E or B signal. If we are willing to assume, on either observational or theoretical
+grounds, that E dominates over B on the angular scale of interest, then it may be sensible to assume that power found
+in the ambiguous modes is E power.
+
+
 <h3>Standard pseudo-$C_{\ell}$ method for EE and BB power spectra</h3>
 
 \begin{equation}
@@ -300,7 +323,7 @@ produces a suboptimal estimator in which the variance in the Bmode power spectru
 E modes. 
 
 <h3>E/B purification</h3>
-Contruct a pure B pseudo-basis
+Construct a pure B pseudo-basis
 
 \begin{equation}
 \tilde{\boldsymbol{Y}}_{\ell m}^B \equiv \boldsymbol{D}_{B}\left(W Y_{\ell m}\right), \text{c.f. Eq.\ref{eq:pseudo_EB}, \ref{eq:basis_EB}}

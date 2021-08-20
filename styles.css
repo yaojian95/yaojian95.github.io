@@ -1,16 +1,16 @@
 
-body {background-color: white;}
-h1   {color: red;margin:50px}
-h2   {color: blue;margin:60px}
-h3   {color: blue;margin:70px}
-/*
+body {background-color: white;margin-right: 450px;margin-left: 450px;}
+h1   {color: red;margin:50px; text-align:center}
+h2   {color: blue;margin:60px;text-align:center}
+h3   {color: blue;margin:70px;text-align:center}
+/* 
 p    {color: black;
     border: 2px solid powderblue;
     margin: 150px;
     font-size: 160%;
     background-color:white
-    }
-*/
+    } */
+
 
 body{counter-reset: section}
 h2{counter-reset: sub-section}

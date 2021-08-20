@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Power_spectrum_estimation</title>
+  
+  <link rel = "icon" href = 
+"https://raw.githubusercontent.com/YJHelloWorld/YJHelloWorld.github.io/master/assets/spherical.png" 
+        type = "image/x-icon">
+  
+        <!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script src="myscripts.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+</head>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+</script>
+
+
+<body>
+    <ul>
+        <li><a class="active" href="CMB_physics.html"><i class="fa fa-cloud"></i> Back</a> </li>
+    </ul>
+<h1>Test</h1>
+
+https://zhuanlan.zhihu.com/p/24709748 矩阵求导术
+$$x = (d-As)^TN^{-1}(d-As)$$
+$$\delta M^{-1} = -M^{-1}(\delta M)M^{-1}$$
+$$dx (scalar)=(-Ads)^TN^{-1}(d-As) + (d-As)^TN^{-1}(-Ads) =-2(d-As)^TN^{-1}(Ads)$$
+
+$$dx = (\frac{\partial x}{\partial s} )^T ds$$
+
+$$\frac{\partial x}{\partial s} = -2 A^TN^{-1}(d-As) = 0$$
+$$s = (A^TN^{-1}A)^{-1}A^TN^{-1}d$$
+
+\begin{array}{|r|l|l|} 
+\hline
+No.	&Method	&Specification\\
+Paper&\text{Map-making methods} &Tegmark 1997 \\
+\hline
+ 
+ 1&Generalized COBE     &W=[A^tMA]^{-1}A^tM\\
+ 2&Bin averaging        &W=[A^tA]^{-1}A^t\\
+ 3&COBE                 &W=[A^tN^{-1}A]^{-1}A^tN^{-1}\\
+ 4&Wiener 1             &W=SA^t[ASA^t+N]^{-1}\\
+ 5&Wiener 2             &W=[S^{-1}+A^tN^{-1}A]^{-1}A^tN^{-1}\\
+ 6&Saskatoon            &W=[\eta S^{-1}+A^tN^{-1}A]^{-1}A^tN^{-1}\\
+ 7&TE96                 &W={\bf{\Lambda}} SA^t[ASA^t+N]^{-1},\>\>(WA)_{ii}=1\\
+ 8&TE97                 &W={\bf{\Lambda}}[\eta S^{-1}+A^tN^{-1}A]^{-1}A^tN^{-1},\>\>(WA)_{ii}=1\\
+ 9&\text{Maximum probability}  &\text{Nonlinear method if non-Gaussian}\\
+10&\text{Maximum entropy}      &\text{Nonlinear method}\\
+\hline
+\label{MethodsTable}
+\end{array}
+
+
+</body>
+</html>
