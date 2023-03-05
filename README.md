@@ -62,3 +62,5 @@ L=-m c^{2}+\frac{1}{2} m v^{2}-m \phi_{\mathrm{N}}+\left(1 \mathrm{PN} \text { c
 |    2   N/A  N/A     82849      C   ...nsorflow/2.6.0/bin/python    35313MiB |<br/>
 |    3   N/A  N/A     82850      C   ...nsorflow/2.6.0/bin/python    34517MiB |<br/>
 +-----------------------------------------------------------------------------+<br/>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js" charset="utf-8"></script>
